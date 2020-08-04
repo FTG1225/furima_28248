@@ -1,24 +1,48 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Users テーブル
+| column          | Type   | Options                                |
+| --------------- | ------ | -------------------------------------- |
+| nickname        | string | null: false                            |
+| email address   | string | null: false, unique: true, index: true |
+| password        | string | null: false                            |
+| sur name        | string | null: false                            |
+| given name kana | string | null: false                            |
+| dob             | string | null: false                            |
 
-Things you may want to cover:
+### Association
+- belongs_to :user
 
-* Ruby version
 
-* System dependencies
+## Item テーブル
+| column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| images              | text       | null: false                    |
+| product name        | string     | null: false                    |
+| product description | text       | null: false                    |
+| product category    | integer    | null: false                    |
+| product status      | integer    | null: false                    |
+| shipping tax        | integer    | null: false                    |
+| prefecture          | integer    | null: false                    |
+| shipping date       | integer    | null: false                    |
+| user                | references | null: false, foreign_key: true |
 
-* Configuration
+### Association
+- belongs_to :address
+- has_one :item_purchase
 
-* Database creation
+## Item_purchase テーブル
+| column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| zip code      | string     | null: false                    |
+| prefecture    | integer    | null: false                    |
+| city          | string     | null: false                    |
+| house number  | string     | null: false                    |
+| building name | string     | null: false                    |
+| phone number  | string     | null: false                    |
+| purchase user | references | null: false, foreign_key: true |
+| seller user   | references | null: false, foreign_key: true |
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+belongs_to :user
+belongs_to :item
