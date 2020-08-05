@@ -31,7 +31,8 @@
 
 ### Association
 - belongs_to :user
-- has_many :item_purchase
+- has_many :item_purchases
+- has_one :address
 
 ## address テーブル
 | column        | Type       | Options                        |
@@ -42,11 +43,9 @@
 | house_number  | string     | null: false                    |
 | building_name | string     | null: false                    |
 | phone_number  | string     | null: false                    |
-| purchase_user | references | null: false, foreign_key: true |
-| seller_user   | references | null: false, foreign_key: true |
-
+| item          | references | foreign_key: true              |
 ### Association
-- belongs_to :item_purchases
+- belongs_to :item
 
 ## Item_purchase テーブル
 | item | references | foreign_key: true |
@@ -55,4 +54,3 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one : address
