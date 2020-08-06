@@ -1,6 +1,7 @@
 AllCops:
 # 除外するディレクトリ（自動生成されたファイル）
 # デフォルト設定にある"vendor/**/*"が無効化されないように記述
+
  Exclude:
    - "vendor/**/*" # rubocop config/default.yml
    - "db/**/*"
@@ -9,15 +10,16 @@ AllCops:
    - "node_modules/**/*"
    - "Gemfile"
 
-
 # 1行あたりの文字数をチェックする
 Layout/LineLength:
+
  Max: 130
 # 下記ファイルはチェックの対象外
  Exclude:
    - "Rakefile"
    - "spec/rails_helper.rb"
    - "spec/spec_helper.rb"
+
 
 # RSpecは1つのブロックあたりの行数が多く、エラー判別するので、チェックから除外
 # ブロック内の行数をチェックする
@@ -30,6 +32,7 @@ Metrics/BlockLength:
 # Condition : 条件文
 # 上記項目をRubocopが計算して基準値を超えると警告を出す（上記頭文字をとって'Abc'）
 Metrics/AbcSize:
+
  Max: 50
 
 # メソッドの中身が複雑になっていないかを、Rubocopが計算して基準値を超えると警告を出す
@@ -68,9 +71,11 @@ Style/AsciiComments:
 Style/Documentation:
  Enabled: false
 
+
 # ％i（）構文を使用していないシンボルで構成される配列リテラルをチェック
 # 無効にする
 Style/SymbolArray:
+
  Enabled: false
 
 # 文字列に値が代入されて変わっていないかチェック（無効）
@@ -80,3 +85,4 @@ Style/FrozenStringLiteralComment:
 # メソッドパラメータ名の最小文字数を設定
 Naming/MethodParameterName:
  MinNameLength: 1
+
