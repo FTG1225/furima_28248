@@ -48,8 +48,10 @@
 - belongs_to :item
 
 ## Item_purchase テーブル
-| item | references | foreign_key: true |
-| user | references | foreign_key: true |
+| column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| item   | references | foreign_key: true |
+| user   | references | foreign_key: true |
 
 ### Association
 - belongs_to :user
