@@ -4,13 +4,13 @@ class CreateItems < ActiveRecord::Migration[6.0]
       #t.string :image,         null:false
       t.string :name,           null:false
       t.text :description,      null:false
-      t.integer :category,      null:false
-      t.integer :status,        null:false
-      t.integer :shipping_tax,  null:false
-      t.integer :prefecture,    null:false
-      t.integer :shipping_date, null:false
+      t.integer :category_id,      null:false
+      t.integer :status_id,        null:false
+      t.integer :shipping_tax_id,  null:false
+      t.integer :prefecture_id,    null:false
+      t.integer :shipping_date_id, null:false
       t.integer :price,         null:false
-      t.references :user,        null:false, foreign_key: true
+      t.references :user,       null:false, foreign_key: true
       t.timestamps
     end
   end
