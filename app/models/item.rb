@@ -6,20 +6,19 @@ class Item < ApplicationRecord
     validates :images
     validates :name
     validates :description
-    validates :price, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters.' }
   end
 
   with_options numericality: { other_than: 1, message: "can't be blank" } do
-    validates :category
-    validates :status
-    validates :shipping_tax
-    validates :prefecture
-    validates :shipping_date
+    validates :category_id
+    validates :status_id
+    validates :shipping_tax_id
+    validates :prefecture_id
+    validates :shipping_date_id
   end
 
   validates :name, length: { maximum: 40 }
   validates :description, length: { maximum: 40 }
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: "is out of setting range" }
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
 
   belongs_to :user
   has_one :item_purchase
