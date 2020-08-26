@@ -10,7 +10,6 @@ class ItemPurchaseController < ApplicationController
   end
 
   def create
-    # binding.pry
     @item = Item.find(params[:item_id])
     @purchase = Purchase.new(purchase_params)
     if @purchase.valid?
@@ -18,13 +17,11 @@ class ItemPurchaseController < ApplicationController
       @purchase.save
       redirect_to root_path
     else
-      # binding.pry
       render :index
     end
   end
 
   def purchase_params
-    # binding.pry
     params.require(:purchase).permit(:item_id, :user_id, :token, :zip_code, :prefecture_id, :city, :house_number, :building_name, :phone_number).merge(user_id: current_user.id)
   end
 
