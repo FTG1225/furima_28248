@@ -4,14 +4,13 @@ class ItemPurchaseController < ApplicationController
     @item = Item.find(params[:item_id])
     @purchase = Purchase.new
   end
-  
 
   def new
     @purchase = Purchase.new
   end
 
   def create
-    #binding.pry
+    # binding.pry
     @item = Item.find(params[:item_id])
     @purchase = Purchase.new(purchase_params)
     if @purchase.valid?
@@ -19,7 +18,7 @@ class ItemPurchaseController < ApplicationController
       @purchase.save
       redirect_to root_path
     else
-      #binding.pry
+      # binding.pry
       render :index
     end
   end
