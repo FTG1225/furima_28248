@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :purchase do
     item_id { 1 }
     user_id { 1 }
-    token { "tok_123asd" }
+    #token { "tok_123asd" }
     zip_code { '123-4567' }
     prefecture_id { 2 }
     city { '北海道' }
