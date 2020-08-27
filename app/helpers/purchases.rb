@@ -1,2 +1,2 @@
-module PurchaseHelper
+module PurchasesHelper
 end
