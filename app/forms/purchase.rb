@@ -1,6 +1,6 @@
 class Purchase
   include ActiveModel::Model
-  attr_accessor :item_id, :user_id, :zip_code, :prefecture_id, :city, :house_number, :building_name, :phone_number
+  attr_accessor :item_id, :user_id, :zip_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :token
 
   with_options presence: true do
     validates :item_id
@@ -8,6 +8,7 @@ class Purchase
     validates :zip_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
     validates :city, :house_number
     validates :phone_number, format: { with: /\A[0-9]+\z/, message: 'is invalid.' }
+    validates :token
   end
   validates :phone_number, length: { maximum: 11, message: 'Phone number is invalid.' }
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
