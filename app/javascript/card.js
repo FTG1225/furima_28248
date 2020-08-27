@@ -1,3 +1,4 @@
+console.log('OK')
 const pay = () => {
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const form = document.getElementById("charge-form");
@@ -29,9 +30,9 @@ const pay = () => {
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
       } else {
+        alert(`Error Credit Card can't be blank!`);
         let inputElement = document.querySelector('input[name="commit"]');
         inputElement.disabled = false;
-        alert(`Error Credit Card can't be blank!`);
         return null; 
         // document.getElementById("charge-form").submit();
         // document.getElementById("charge-form").reset();
